@@ -1,0 +1,2 @@
+# Preserve the imported specification byte-for-byte, including Markdown hard breaks.
+SPEC.md whitespace=-blank-at-eol

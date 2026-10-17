@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermod"
+version = "0.1.0"
+description = "Independent, policy-gated local browser controller"
+requires-python = ">=3.11"
+dependencies = ["playwright==1.64.0"]
+
+[project.scripts]
+hermod = "hermod.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

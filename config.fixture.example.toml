@@ -1,0 +1,7 @@
+# Synthetic, same-UID development ONLY. Never log in with this profile.
+state_dir = "/tmp/hermod-demo-state"
+socket_path = "/tmp/hermod-demo-run/hermod.sock"
+allowed_uids = [1000] # Replace with id -u.
+test_mode = true
+fixture_origin = "http://127.0.0.1:18767"
+min_disk_bytes = 104857600

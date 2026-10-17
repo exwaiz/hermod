@@ -1,0 +1,40 @@
+[Unit]
+Description=Hermod independent policy-gated browser controller
+After=network.target
+
+[Service]
+Type=simple
+User=hermod
+Group=hermod
+SupplementaryGroups=hermod-clients
+WorkingDirectory=/opt/hermod
+ExecStart=/opt/hermod/venv/bin/python -m hermod --config /etc/hermod/config.toml serve
+RuntimeDirectory=hermod
+RuntimeDirectoryMode=0700
+StateDirectory=hermod
+StateDirectoryMode=0700
+UMask=0077
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+TasksMax=128
+CPUWeight=20
+IOWeight=20
+MemoryHigh=700M
+MemoryMax=900M
+StandardOutput=journal
+StandardError=null
+# User namespaces must remain available for Chromium sandbox. Do not add
+# RestrictNamespaces/PrivateUsers/--no-sandbox to work around launch failures.
+
+[Install]
+WantedBy=multi-user.target

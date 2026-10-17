@@ -1,0 +1,19 @@
+state_dir = "/var/lib/hermod"
+socket_path = "/run/hermod/hermod.sock"
+socket_group = "hermod-clients"
+allowed_uids = [1000] # Review actual Heimdall and standalone operator UID.
+test_mode = false
+queue_limit = 10
+job_timeout = 120
+navigation_timeout = 30
+idle_timeout = 600
+min_disk_bytes = 104857600
+soft_rss_bytes = 805306368
+# Install the reviewed browser separately; do not expose an existing personal profile.
+browser_executable = "/opt/hermod/chromium/chrome"
+
+# Only an owner-supplied, verified existing conversation link may be registered.
+# [conversations."cgpt:owner-example"]
+# provider = "chatgpt"
+# url = "https://chatgpt.com/c/OWNER_SUPPLIED_ID"
+# verified = true
